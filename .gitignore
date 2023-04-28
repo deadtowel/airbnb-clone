@@ -2,6 +2,7 @@
 
 # ide
 .vscode
+jsconfig.json
 
 # dependencies
 /node_modules
