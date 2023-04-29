@@ -9,6 +9,8 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { signIn } from 'next-auth/react';
 
 import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
+
 import Modal from './Modal';
 import Button from '../Button';
 import Heading from '../Heading';
@@ -17,6 +19,7 @@ import Input from '../inputs/Input';
 const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const {
     register,
@@ -38,7 +41,7 @@ const RegisterModal = () => {
       .then(() => {
         toast.success('Registered!');
         registerModal.onClose();
-        //loginModal.onOpen();
+        loginModal.onOpen();
       })
       .catch((error) => {
         toast.error('Something went wrong.');
