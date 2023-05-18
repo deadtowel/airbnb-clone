@@ -3,7 +3,7 @@ import getListings, { IListingsParams } from './actions/getListings';
 import Container from './components/Container';
 import EmptyState from './components/EmptyState';
 import ListingCard from './components/listings/ListingCard';
-import { SafeUser } from './types';
+import { SafeListing, SafeUser } from './types';
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -32,7 +32,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       gap-8
     '
       >
-        {listings.map((listing: any) => (
+        {listings.map((listing: SafeListing) => (
           <ListingCard
             currentUser={currentUser as SafeUser}
             key={listing.id}
